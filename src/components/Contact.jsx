@@ -121,6 +121,11 @@ const Contact = () => {
             {loading ? "Sending..." : "Send"}
           </button>
         </form>
+        <div className="flex items-center justify-center flex-col text-secondary mt-8">
+          <p className="text-xl">Get in touch</p>
+          <p className="text-sm">Phone number: 07062466189</p>
+          <p className="text-sm">sheriffdeenoluwatoyinoni@gmail.com</p>
+        </div>
       </motion.div>
 
       <motion.div
