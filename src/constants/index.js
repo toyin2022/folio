@@ -155,7 +155,7 @@ const testimonials = [
   {
     testimonial:
       "Their deep expertise in software development, particularly in full-stack solutions like MERN, has been a game-changer for our projects",
-    name: "John Elesho",
+    name: "Victory",
     designation: "Founder",
     company: "Elsoft IT solutions",
     image: "https://randomuser.me/api/portraits/women/6.jpg",
