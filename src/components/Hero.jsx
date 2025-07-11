@@ -18,7 +18,7 @@ const Hero = () => {
             Hi, I'm <span className="text-[#915EFF]">Toyin</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100 w-4/5`}>
-            I’m a full stack web developer with over 2 years of experience in
+            I'm a full stack web developer with over 3 years of experience in
             Node.js, React, Express, MongoDB, and React Native and many other
             popular frameworks and libraries.
             <br className="sm:block hidden" />

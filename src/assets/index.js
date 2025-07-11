@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+import logo from "./logo.png";
 import backend from "./backend.png";
 import creator from "./creator.png";
 import mobile from "./mobile.png";
@@ -21,7 +21,8 @@ import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
 
-import meta from "./company/meta.png";
+import tachpae from "./company/tachpae.png";
+import elsoft from "./company/elsoft.svg";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
@@ -32,6 +33,13 @@ import tripguide from "./tripguide.png";
 import gpaCalc from "./gpaCalc.png";
 import cwt from "./cwt.png";
 import vegeelsvg from "./vegeel-svg.svg";
+import tachpaeApp from "./tachpaeApp.png";
+import tachpaeEvent from "./tachpaeEvent.png";
+import pjtravels from "./pjtravels.png";
+
+import tega from "./tega.jpg";
+import ben from "./ben.jpg";
+import dara from "./dara.jpg";
 
 export {
   logo,
@@ -55,7 +63,8 @@ export {
   tailwind,
   typescript,
   threejs,
-  meta,
+  tachpae,
+  elsoft,
   shopify,
   starbucks,
   tesla,
@@ -64,5 +73,11 @@ export {
   tripguide,
   gpaCalc,
   vegeelsvg,
+  tachpaeApp,
+  tachpaeEvent,
+  pjtravels,
   cwt,
+  tega,
+  ben,
+  dara,
 };
