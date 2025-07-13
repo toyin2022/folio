@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Tilt from "react-tilt";
 import { motion } from "framer-motion";
 
@@ -68,6 +68,11 @@ const ProjectCard = ({
 };
 
 const Works = () => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -75,7 +80,7 @@ const Works = () => {
         <h2 className={`${styles.sectionHeadText}`}>Projects.</h2>
       </motion.div>
 
-      <div className="w-full flex flex-col md:flex-row items-center md:items-start px-4 md:px-0">
+      <div className="w-full flex flex-col md:flex-row items-center md:items-start px-4 md:px-0  bg-black/10">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
           className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px] text-center md:text-left"
@@ -88,13 +93,21 @@ const Works = () => {
         </motion.p>
       </div>
 
-      <div className="mt-20 flex flex-wrap justify-center gap-7 px-2 md:px-0">
-        {projects.map((project, index) => (
-          <ProjectCard key={`project-${index}`} index={index} {...project} />
-        ))}
+      <div className="mt-20 flex flex-wrap justify-center gap-7 px-2 md:px-0 ">
+        {mounted && Array.isArray(projects) && projects.length > 0 ? (
+          projects.map((project, index) => (
+            <ProjectCard key={`project-${index}`} index={index} {...project} />
+          ))
+        ) : !mounted ? (
+          <div className="text-white text-center w-full">Loading...</div>
+        ) : (
+          <div className="text-white text-center w-full">
+            No projects found or an error occurred.
+          </div>
+        )}
       </div>
     </>
   );
 };
 
-export default SectionWrapper(Works, "");
+export default SectionWrapper(Works, "work");

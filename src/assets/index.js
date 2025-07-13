@@ -34,8 +34,8 @@ import gpaCalc from "./gpaCalc.png";
 import cwt from "./cwt.png";
 import vegeelsvg from "./vegeel-svg.svg";
 import tachpaeApp from "./tachpaeApp.png";
-import tachpaeEvent from "./tachpaeEvent.png";
-import pjtravels from "./pjtravels.png";
+import tachpaeEvent from "./tachpaeEvent.jpg";
+import pjtravels from "./pjtravels.jpg";
 
 import tega from "./tega.jpg";
 import ben from "./ben.jpg";
