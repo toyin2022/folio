@@ -1,113 +1,68 @@
-import React, { useEffect, useState } from "react";
-import Tilt from "react-tilt";
-import { motion } from "framer-motion";
-
-import { styles } from "../styles";
-import { web } from "../assets";
-import { SectionWrapper } from "../hoc";
+import React from "react";
 import { projects } from "../constants";
-import { fadeIn, textVariant } from "../utils/motion";
-
-const ProjectCard = ({
-  index,
-  name,
-  description,
-  tags,
-  image,
-  source_code_link,
-}) => {
-  return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
-      <Tilt
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
-      >
-        <div className="relative w-full h-[230px]">
-          <img
-            src={image}
-            alt="project_image"
-            className="w-full h-full object-cover rounded-2xl"
-          />
-
-          <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
-            <div
-              onClick={() => window.open(source_code_link, "_blank")}
-              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
-            >
-              <img
-                src={web}
-                alt="source code"
-                className="w-1/2 h-1/2 object-contain"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-5">
-          <h3 className="text-white font-bold text-[24px]">{name}</h3>
-          <p className="mt-2 text-secondary text-[14px]">{description}</p>
-        </div>
-
-        <div className="mt-4 flex flex-wrap gap-2">
-          {tags.map((tag) => (
-            <p
-              key={`${name}-${tag.name}`}
-              className={`text-[14px] ${tag.color}`}
-            >
-              #{tag.name}
-            </p>
-          ))}
-        </div>
-      </Tilt>
-    </motion.div>
-  );
-};
 
 const Works = () => {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
-    <>
-      <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText}`}>My work</p>
-        <h2 className={`${styles.sectionHeadText}`}>Projects.</h2>
-      </motion.div>
-
-      <div className="w-full flex flex-col md:flex-row items-center md:items-start px-4 md:px-0  bg-black/10">
-        <motion.p
-          variants={fadeIn("", "", 0.1, 1)}
-          className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px] text-center md:text-left"
-        >
-          Following projects showcases my skills and experience through
-          real-world examples of my work. Each project is briefly described with
-          links to live demo. It reflects my ability to solve complex problems,
-          work with different technologies, and manage projects effectively.
-          More projects coming soon.
-        </motion.p>
-      </div>
-
-      <div className="mt-20 flex flex-wrap justify-center gap-7 px-2 md:px-0 ">
-        {mounted && Array.isArray(projects) && projects.length > 0 ? (
-          projects.map((project, index) => (
-            <ProjectCard key={`project-${index}`} index={index} {...project} />
+    <section id="work" className="py-10 px-4 max-w-5xl mx-auto">
+      <h2 className="text-3xl font-bold text-white mb-4 text-center">
+        Projects
+      </h2>
+      <p className="text-secondary text-center mb-8">
+        Following projects showcase my skills and experience through real-world
+        examples of my work. More projects coming soon.
+      </p>
+      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {Array.isArray(projects) && projects.length > 0 ? (
+          projects.map((project, idx) => (
+            <div
+              key={project.name + idx}
+              className="bg-tertiary rounded-xl p-5 shadow-md flex flex-col h-full"
+            >
+              <img
+                src={project.image}
+                alt={project.name}
+                className="w-full h-40 object-cover rounded-lg mb-4"
+                loading="lazy"
+              />
+              <h3 className="text-xl font-semibold text-white mb-2">
+                {project.name}
+              </h3>
+              <p className="text-secondary text-sm mb-3 flex-1">
+                {project.description}
+              </p>
+              <div className="flex flex-wrap gap-2 mt-auto">
+                {project.tags &&
+                  project.tags.map((tag) => (
+                    <span
+                      key={tag.name}
+                      className={`text-xs rounded px-2 py-1 ${
+                        tag.color || "text-primary bg-primary/10"
+                      }`}
+                    >
+                      #{tag.name}
+                    </span>
+                  ))}
+              </div>
+              {project.source_code_link && (
+                <a
+                  href={project.source_code_link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-block text-white underline text-sm hover:text-secondary"
+                >
+                  Source Code
+                </a>
+              )}
+            </div>
           ))
-        ) : !mounted ? (
-          <div className="text-white text-center w-full">Loading...</div>
         ) : (
-          <div className="text-white text-center w-full">
-            No projects found or an error occurred.
+          <div className="text-white col-span-full text-center">
+            No projects found.
           </div>
         )}
       </div>
-    </>
+    </section>
   );
 };
 
-export default SectionWrapper(Works, "work");
+export default Works;
