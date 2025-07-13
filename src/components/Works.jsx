@@ -50,7 +50,7 @@ const Works = () => {
                   rel="noopener noreferrer"
                   className="mt-4 inline-block text-white underline text-sm hover:text-secondary"
                 >
-                  Source Code
+                  Live View
                 </a>
               )}
             </div>
