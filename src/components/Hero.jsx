@@ -23,6 +23,14 @@ const Hero = () => {
             popular frameworks and libraries.
             <br className="sm:block hidden" />
           </p>
+          <a
+            href="/toyin-cv.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 px-6 py-2 bg-[#915EFF] text-white rounded-lg shadow hover:bg-[#7a4fdc] transition w-fit"
+          >
+            Download CV
+          </a>
         </div>
       </div>
 
